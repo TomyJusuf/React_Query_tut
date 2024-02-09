@@ -6,18 +6,17 @@ const fetchSuperHero = () => {
 };
 
 export default function RQSuperHero() {
-  const { isLoading, data, isError, error, isFetching } = useQuery(
+  const { isLoading, data, isError, error, isFetching, refetch } = useQuery(
     'super-heroes',
     fetchSuperHero,
     {
-      refetchInterval: 2000, // If data is changing,it will be refetching every 2s
-      refetchIntervalInBackground: true, // Data is refetching even the browser is not in focused
+      enabled: false,
     }
   );
 
   console.log({ isLoading, isFetching });
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <h2>loading...</h2>;
   }
 
@@ -27,6 +26,12 @@ export default function RQSuperHero() {
   return (
     <>
       <h2>RQ Super Hero Page</h2>
+      <button
+        onClick={refetch}
+        className="border px-2 py-1 bg-violet-500 font-black"
+      >
+        Fetch heroes
+      </button>
       {data?.data.map((heroes) => {
         return <h2 key={heroes.name}>{heroes.name}</h2>;
       })}
