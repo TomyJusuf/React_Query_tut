@@ -10,11 +10,8 @@ export default function RQSuperHero() {
     'super-heroes',
     fetchSuperHero,
     {
-      refetchOnMount: true, //   [false,true,'always']
-      // true : data will be min once refetching
-      // false: data will be never refetching
-      // always: refetch data when the component remounts(se znovu pripoji)
-      refetchOnWindowFocus: true, // [false,true,'always]
+      refetchInterval: 2000, // If data is changing,it will be refetching every 2s
+      refetchIntervalInBackground: true, // Data is refetching even the browser is not in focus
     }
   );
 
