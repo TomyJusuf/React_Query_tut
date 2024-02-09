@@ -11,7 +11,7 @@ export default function RQSuperHero() {
     fetchSuperHero,
     {
       refetchInterval: 2000, // If data is changing,it will be refetching every 2s
-      refetchIntervalInBackground: true, // Data is refetching even the browser is not in focus
+      refetchIntervalInBackground: true, // Data is refetching even the browser is not in focused
     }
   );
 
