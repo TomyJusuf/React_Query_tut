@@ -2,6 +2,7 @@ import './App.css';
 import Home from './components/Home';
 import SuperHeroes from './components/SuperHeroes';
 import RQSuperHero from './components/RQSuperHero';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
@@ -21,6 +22,8 @@ function App() {
           <Route path="/super-heroes" element={<SuperHeroes />} />
           <Route path="/rq-super-heroes" element={<RQSuperHero />} />
         </Routes>
+        {/* Included here */}
+        <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
       </QueryClientProvider>
     </>
   );
