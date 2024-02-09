@@ -10,7 +10,7 @@ export default function RQSuperHero() {
     'super-heroes',
     fetchSuperHero,
     {
-      cacheTime: 5000,
+      staleTime: 10000,
     }
   );
 
