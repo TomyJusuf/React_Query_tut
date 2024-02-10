@@ -19,6 +19,11 @@ export default function RQSuperHero() {
     {
       onSuccess,
       onError,
+      select: (data) => {
+        // I can use filter/map or any other method I need.
+        const superHeroNames = data.data.map((hero) => hero.name);
+        return superHeroNames;
+      },
     }
   );
 
@@ -40,8 +45,15 @@ export default function RQSuperHero() {
       >
         Fetch heroes
       </button>
-      {data?.data.map((heroes) => {
+      {/* {data?.data.map((heroes) => {
         return <h2 key={heroes.name}>{heroes.name}</h2>;
+      })} */}
+      {data.map((heroName) => {
+        return (
+          <div className="" key={heroName}>
+            {heroName}
+          </div>
+        );
       })}
     </>
   );
