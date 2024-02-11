@@ -1,10 +1,12 @@
-import './App.css';
-import Home from './components/Home';
-import SuperHeroes from './components/SuperHeroes';
-import RQSuperHero from './components/RQSuperHero';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import { QueryClientProvider, QueryClient } from 'react-query';
+import './App.css';
+import Home from './components/Home';
+import SuperHeroes from './components/SuperHeroes';
+import RQSuperHeros from './components/RQSuperHeros';
+
+import RQ_Super_Hero from './components/RQ_Super_Hero';
 
 const queryClient = new QueryClient();
 
@@ -19,8 +21,9 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/rq-super-heroes/:heroId" element={<RQ_Super_Hero />} />
           <Route path="/super-heroes" element={<SuperHeroes />} />
-          <Route path="/rq-super-heroes" element={<RQSuperHero />} />
+          <Route path="/rq-super-heroes" element={<RQSuperHeros />} />
         </Routes>
         {/* Included here */}
         <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
@@ -28,5 +31,4 @@ function App() {
     </>
   );
 }
-
 export default App;
