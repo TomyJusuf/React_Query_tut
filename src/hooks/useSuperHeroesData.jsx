@@ -13,9 +13,9 @@ export const useSuperHeroesData = (onSuccess, onError) =>
   useQuery('super-heroes', fetchSuperHero, {
     onSuccess,
     onError,
-    select: (data) => {
-      // I can use filter/map or any other method I need.
-      const superHeroNames = data.data.map((hero) => hero.name);
-      return superHeroNames;
-    },
+    // select: (data) => {
+    //   // I can use filter/map or any other method I need.
+    //   const superHeroNames = data.data.map((hero) => hero.name);
+    //   return superHeroNames;
+    // },
   });
