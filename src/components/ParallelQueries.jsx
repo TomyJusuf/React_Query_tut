@@ -10,7 +10,7 @@ const fetchFriends = () => {
 };
 
 export default function ParallelQueries() {
-  // Destructur value as ALIAS data: ...
+  // Destructur value as ALIAS
   const { data: superHeroes } = useQuery('super-heroes', fetchSuperHeroes);
   const { data: friends } = useQuery('friends', fetchFriends);
 
