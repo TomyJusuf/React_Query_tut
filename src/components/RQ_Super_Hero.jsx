@@ -3,6 +3,7 @@ import { useSuperHeroData } from '../hooks/useSuperHeroData';
 
 export default function RQ_Super_Hero() {
   const { heroId } = useParams();
+
   const { isloading, data, isError, error } = useSuperHeroData(heroId);
 
   if (isloading) {
