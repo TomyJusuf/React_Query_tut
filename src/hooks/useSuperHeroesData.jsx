@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useQuery, useMutation } from 'react-query';
+import { useQuery, useMutation, useQueryClient } from 'react-query';
 
 const fetchSuperHero = () => {
   return axios.get('http://localhost:4000/superheroes');
@@ -16,5 +16,11 @@ export const useSuperHeroesData = (onSuccess, onError) =>
   });
 
 export const useAddSuperHeroData = () => {
-  return useMutation(addSuperHero);
+  const queryClient = useQueryClient();
+  return useMutation(addSuperHero, {
+    // optional: onSuccess will automaticly refetch the data,so we dont need click on button  with fn refetch
+    onSuccess: () => {
+      queryClient.invalidateQueries('super-heroes');
+    },
+  });
 };
